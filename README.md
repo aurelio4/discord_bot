@@ -1,2 +1,1 @@
-Test changing this for test
-another test
+Bot used in Savvy guild discord channel to run certain commands.

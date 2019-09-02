@@ -21,4 +21,20 @@ client.on('message', message => {
     }
 })
 
+client.on('message', message => {
+    if(message.content.startsWith === '!ban') {
+        const user = message.mentions.users.first();
+        if(user) {
+            const member = message.guild.member(user);
+            if(member) {
+                member.ban(7)
+                    .then(() => console.log(`Banned ${member.displayName}`), message.reply(`Successfully banned ${member.displayName}.`))
+                    .catch(err => { message.reply(`That user isn't in this server!`) })
+            }
+        } else {
+            message.reply(`You didn't specify a member!`)
+        }
+    }
+})
+
 client.login('NjE4MDA1MzE4ODYwODAwMDIw.XWzdKA.MQmHZ9p2xRRmrOcGJhsFyDL2LFQ');
